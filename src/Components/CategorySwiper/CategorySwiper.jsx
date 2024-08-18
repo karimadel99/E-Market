@@ -44,7 +44,7 @@ export default function CategorySwiper() {
     >
       {categories.map((category) => (
         <SwiperSlide key={category._id}>
-          <div className="category-slide my-4 rounded-lg shadow-lg text-center p-4 bg-white dark:bg-gray-800">
+          <div className="category-slide my-4 rounded-lg w-2/3 mx-auto md:w-full  shadow-lg text-center p-4 bg-white dark:bg-gray-800">
             <img
               src={category.image}
               alt={category.name}
