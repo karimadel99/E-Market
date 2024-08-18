@@ -1,0 +1,64 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.active{
+    @apply  border-b-2 border-indigo-500 font-bold
+}
+
+.product .btn 
+{
+    transition: .5s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product:hover .btn 
+{
+    opacity: 1;
+    transform: translateY(0%);
+}
+.product .btn:hover{
+    background-color: #00409a;
+}
+
+.product:hover .wishlist 
+{
+    opacity: 1;
+    transform: translateY(20%);
+}
+.product .wishlist 
+{
+    transition: .5s;
+    transform: translateY(0%);
+    opacity: 0;
+}
+
+.swiper-pagination {
+    position: static;
+}
+
+.swiper-pagination-bullet {
+    background-color: #65b0f2; 
+    width: 40px;
+    border-radius: 5px;
+    height: 10px;
+  }
+  
+  /* Color of the active dot */
+  .swiper-pagination-bullet-active {
+    background-color: #002183; 
+  }
+
+
+  .swiper-button-next,
+.swiper-button-prev {
+  color: #a0c2ff; 
+  
+}
+.swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 80px;
+}
