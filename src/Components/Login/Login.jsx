@@ -47,7 +47,7 @@ export default function Login() {
   });
 
   return (
-    <div className="w-1/2 mx-auto p-20">
+    <div className="w-3/4 md:w-1/2 mx-auto p-20">
       <h1 className="text-3xl my-5 text-center">Log in</h1>
       {apiError && (
         <div
@@ -111,7 +111,7 @@ export default function Login() {
             <span className="font-medium">{formik.errors.password}</span>
           </div>
         )}
-
+        <div className="flex justify-between">
         {loading ? (
           <button
             type="button"
@@ -135,6 +135,9 @@ export default function Login() {
         >
           Forgot Password?
         </Link>
+        </div>
+
+
       </form>
     </div>
   );

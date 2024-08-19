@@ -78,7 +78,7 @@ export default function Register() {
   });
 
   return (
-    <div className="w-1/2 mx-auto my-10">
+    <div className="w-3/4 md:w-1/2 mx-auto p-20">
       <h1 className="text-3xl my-5 text-center">Register</h1>
       {apiError && <div
         className="p-4  my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:text-red-400"
