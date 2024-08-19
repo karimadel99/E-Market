@@ -62,3 +62,7 @@
 .swiper-button-prev:after, .swiper-button-next:after {
     font-size: 80px;
 }
+.menu-transition {
+    transition: max-height 0.8s ease-in-out, opacity 0.9s ease-in-out, transform 0.7s ease-in-out;
+  }
+  

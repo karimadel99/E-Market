@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import style from './Navbar.module.css';
 import logo from '../../assets/images/new2.png';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { userContext } from '../../Context/UserContext';
@@ -13,7 +12,6 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check if dark mode is already enabled in localStorage
     const savedMode = localStorage.getItem('darkMode') === 'enabled';
     setDarkMode(savedMode);
     if (savedMode) {
@@ -32,15 +30,15 @@ export default function Navbar() {
     }
   };
 
-  function logOut() {
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const logOut = () => {
     localStorage.removeItem('userToken');
     setUserData(null);
     setIsMenuOpen(false);
     navigate('register');
-  }
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -58,9 +56,9 @@ export default function Navbar() {
           </button>
         </div>
         <div
-          className={`w-full justify-evenly md:flex md:items-center md:space-x-2 text-lg ${
-            isMenuOpen ? 'block' : 'hidden'
-          }`}
+          className={`overflow-hidden transition-all duration-500 ease-in-out ${
+            isMenuOpen ? 'max-h-screen opacity-100 transform scale-100' : 'max-h-0 opacity-0 transform scale-95'
+          } md:max-h-full md:opacity-100 md:transform md:scale-100 w-full justify-evenly md:flex md:items-center md:space-x-2 text-lg`}
         >
           {userData && (
             <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mt-2 md:mt-0">

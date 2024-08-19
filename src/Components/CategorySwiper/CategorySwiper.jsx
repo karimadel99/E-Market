@@ -35,7 +35,7 @@ export default function CategorySwiper() {
         disableOnInteraction: false,
       }}
       breakpoints={{
-        640: { slidesPerView: 1 },
+        340: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
       }}
