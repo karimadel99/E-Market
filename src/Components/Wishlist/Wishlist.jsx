@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 export default function Wishlist() {
   const [wishlist, setWishlist] = useState(null);
-  const token = localStorage.getItem('userToken'); 
+  const token = localStorage.getItem('userToken');
 
   async function fetchWishlist() {
     try {
@@ -24,12 +24,12 @@ export default function Wishlist() {
 
   async function removeFromWishlist(productId) {
     try {
-     let response= await axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`, {
+      let response = await axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`, {
         headers: {
           token,
         },
       });
-      fetchWishlist(); 
+      fetchWishlist();
       toast.success(response.data.message);
     } catch (error) {
       console.error('Error removing from wishlist:', error);
@@ -37,7 +37,7 @@ export default function Wishlist() {
   }
 
   useEffect(() => {
-    fetchWishlist(); 
+    fetchWishlist();
   }, []);
 
   return (
@@ -72,16 +72,16 @@ export default function Wishlist() {
             ) : wishlist?.length > 0 ? (
               wishlist.map((product) => (
                 <tr key={product._id} className="bg-white border-b dark:bg-slate-700 dark:text-white hover:bg-gray-50">
-                  <Link to={`/productdetails/${product.id}`}>
                   <td className="p-4">
-                    <img
-                      src={product.imageCover}
-                      className="w-16 md:w-32 max-w-full max-h-full"
-                      alt={product.title}
-                    />
+                    <Link to={`/productdetails/${product.id}`}>
+                      <img
+                        src={product.imageCover}
+                        className="w-16 md:w-32 max-w-full max-h-full"
+                        alt={product.title}
+                      />
+                    </Link>
                   </td>
-                  </Link>
-                  
+
                   <td className="py-4 dark:text-white font-semibold text-gray-900">
                     {product.title}
                   </td>
@@ -92,8 +92,8 @@ export default function Wishlist() {
                     <button
                       onClick={() => removeFromWishlist(product._id)}
                       className="font-medium text-red-600 my-2 hover:bg-red-600 hover:text-white rounded p-2 text-center"
-                    ><i className="fa-regular fa-heart mx-4"></i> 
-                         <p>Remove</p>
+                    ><i className="fa-regular fa-heart mx-4"></i>
+                      <p>Remove</p>
                     </button>
                   </td>
                 </tr>

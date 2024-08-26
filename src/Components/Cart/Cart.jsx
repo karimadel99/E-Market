@@ -70,15 +70,15 @@ export default function Cart() {
             ) : (cart?.data && cart.data.products.length > 0) ? (
               cart.data.products.map((product) => (
                 <tr key={product.product._id} className="bg-white border-b hover:bg-gray-50 dark:bg-gray-800 dark:text-white">
-                  <Link to={`/productdetails/${product.product.id}`}>
                   <td className="p-4">
+                  <Link to={`/productdetails/${product.id}`}>
                     <img
                       src={product.product.imageCover}
                       className="w-16 md:w-32 max-w-full max-h-full"
                       alt={product.product.name}
                     />
-                  </td>
                   </Link>
+                  </td>
                   <td className="py-4 font-semibold text-gray-900 dark:text-white">{product.product.title}</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">

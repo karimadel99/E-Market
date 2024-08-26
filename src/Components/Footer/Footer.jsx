@@ -12,7 +12,7 @@ export default function Footer() {
     
   return <>
     
-    <footer className=" bg-gray-100 py-8 bottom-0 dark:bg-slate-800 shadow-black shadow-lg dark:shadow-white dark:text-white relative inset-x-0">
+    <footer className=" bg-gray-100 py-8 bottom-0 dark:bg-slate-800 shadow-black shadow-lg dark:shadow-white dark:text-white">
       <div className="container w-11/12 mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between  space-y-4 md:space-y-0">
           <div className="w-full md:w-2/3 m-3 ">
