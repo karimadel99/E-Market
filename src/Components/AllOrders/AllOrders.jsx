@@ -4,24 +4,52 @@ import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 
 export default function AllOrders() {
+
+
+  function parseJwt(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
+
+
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchOrders() {
-      try {
-        const response = await axios.get('https://ecommerce.routemisr.com/api/v1/orders/user/66b1f1a8ed0dc0016c04a6ae');
-        setOrders(response.data);
-        setLoading(false); 
-      } catch (error) {
-        console.error('Error fetching orders:', error);
+      const token = localStorage.getItem('userToken');
+
+      if (token) {
+        try {
+          const decodedToken = parseJwt(token);
+          const userId = decodedToken.id;
+
+          const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${userId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+          setOrders(response.data);
+          setLoading(false);
+        } catch (error) {
+          console.error('Error fetching orders:', error);
+          setLoading(false);
+        }
+      } else {
+        console.error('No token found');
         setLoading(false); 
       }
     }
 
     fetchOrders();
   }, []);
+
 
   const handleShowMore = (order) => {
     setSelectedOrder(order);
