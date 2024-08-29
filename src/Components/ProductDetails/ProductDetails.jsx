@@ -120,7 +120,7 @@ export default function ProductDetails() {
                         className="w-3/4 mx-auto object-cover rounded-lg mb-4"
                       />
                       <h3 className="text-lg font-medium">{relatedProduct.title.split(' ').slice(0, 7).join(' ')}</h3>
-                      <p className="text-indigo-600 font-semibold">${relatedProduct.price}</p>
+                      <p className="text-indigo-600 font-semibold">EGP{relatedProduct.price}</p>
                       <div className="text-yellow-500 mt-2">
                         {'★'.repeat(Math.round(relatedProduct.ratingsAverage)) + '☆'.repeat(5 - Math.round(relatedProduct.ratingsAverage))}
                       </div>

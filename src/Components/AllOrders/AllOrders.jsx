@@ -71,9 +71,9 @@ export default function AllOrders() {
             <div key={order._id} className="bg-gray-100 dark:bg-slate-700 p-4 rounded shadow-md">
               <h2 className="text-xl font-semibold">Order # {index + 1}</h2>
               <p><strong>Shipping Address:</strong> {order.shippingAddress?.details || 'Address not provided'}, {order.shippingAddress?.city || ''}</p>
-              <p><strong>Phone:</strong> {order.shippingAddress?.phone || 'N/A'}</p>
+              <p><strong>Phone:</strong> {order.shippingAddress?.phone }</p>
               <p><strong>Date:</strong> {new Date(order.createdAt).toLocaleDateString()}</p>
-              <p><strong>Total Price:</strong> ${order.totalOrderPrice}</p>
+              <p><strong>Total Price:</strong> EGP{order.totalOrderPrice}</p>
               <p><strong>Payment Method:</strong> {order.paymentMethodType}</p>
               <button
                 onClick={() => handleShowMore(order)}
@@ -104,7 +104,7 @@ export default function AllOrders() {
                 <div>
                   <h3 className="font-semibold">{item.product.title}</h3>
                   <p>Quantity: {item.count}</p>
-                  <p>Price: ${item.price}</p>
+                  <p>Price: EGP{item.price}</p>
                 </div>
               </div>
             ))}
