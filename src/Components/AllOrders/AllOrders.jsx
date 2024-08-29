@@ -70,7 +70,7 @@ export default function AllOrders() {
           {orders.map((order, index) => (
             <div key={order._id} className="bg-gray-100 dark:bg-slate-700 p-4 rounded shadow-md">
               <h2 className="text-xl font-semibold">Order # {index + 1}</h2>
-              <p><strong>Shipping Address:</strong> {order.shippingAddress?.details || 'Address not provided'}, {order.shippingAddress?.city || ''}</p>
+              <p><strong>Shipping Address:</strong>  {order.shippingAddress?.city}</p>
               <p><strong>Phone:</strong> {order.shippingAddress?.phone }</p>
               <p><strong>Date:</strong> {new Date(order.createdAt).toLocaleDateString()}</p>
               <p><strong>Total Price:</strong> EGP{order.totalOrderPrice}</p>
